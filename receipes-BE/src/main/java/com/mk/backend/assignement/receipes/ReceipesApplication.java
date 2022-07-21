@@ -3,6 +3,7 @@ package com.mk.backend.assignement.receipes;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication
 public class ReceipesApplication {
 

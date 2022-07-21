@@ -108,6 +108,12 @@ public class IngredientController {
         return ResponseEntity.ok(ingredientService.findIngredientByName(name));
     }
 
+    @GetMapping("list")
+    public ResponseEntity<List<IngredientDto>> retrieveAllIngredients(){
+        log.info("retrieving all ingredients");
+        return ResponseEntity.ok(ingredientService.retrieveAllIngredient());
+    }
+
 
 
 

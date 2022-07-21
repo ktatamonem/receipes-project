@@ -1,0 +1,88 @@
+<div class="content">
+    <div class="title">
+        <h2 class="sectionTitle">Create Recipe</h2>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label>Recipe name</label>
+                    <input type="text" [(ngModel)]="request.name" [ngModelOptions]="{standalone: true}" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Vegan</label>
+                    <input type="checkbox" class="btn-check" [ngModelOptions]="{standalone: true}" ngbButton [(ngModel)]="request.vegan">
+                </div>
+                <div class="form-group">
+                    <label>Serving Number</label>
+                    <input type="number" class="form-control"  [ngModelOptions]="{standalone: true}" [(ngModel)]="request.servingNumber">
+                </div>
+                <div class="form-group">
+                    <label>Instruction</label>
+                    <textarea class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="request.instruction">
+                    </textarea>
+                </div>
+                <div class="form-group row">
+                <div class="col">
+                    <label>Ingredients</label>
+                    <select   
+                     [(ngModel)]="recipeIngredient.ingredient" 
+                     [ngModelOptions]="{standalone: true}"
+                     class="form-control" id="customer">
+                     <option [ngValue]=""></option>
+                     <option *ngFor='let ing of ingredientList' [ngValue]="ing">
+                      {{ing.name}}
+                    </option>
+                     
+                    </select>
+                </div>
+                <div class="col">
+                    <label>Quantity</label>
+                    <input type="number" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="recipeIngredient.quantity">                  
+                </div>
+                <div class="col">
+                    <button  class="btn btn-primary form-control" (click)="addIngredient()">Add ingredient</button>
+                </div>
+                   
+                    
+                  </div>
+                  <div>
+
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle text-nowrap table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-dark font-medium fs-4">#</th>
+                                    <th class="text-dark font-medium fs-4">Name</th>             
+                                    <th class="text-dark font-medium fs-4">Quantity</th>             
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor='let ingredient of request.ingredients; index as i'>
+                                    <td>
+                                        {{ i + 1 }}
+                                    </td>
+                                    <td>
+                                        {{ingredient.ingredient.name}}
+                                    </td>
+                                   
+                                    <td>
+                                      {{ingredient.quantity}}
+                                    </td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                  </div>
+
+                <div class="form-group mt-5">
+
+                <button  class="btn btn-primary" (click)="addRecipe()">Create</button>
+                <button  class="btn btn-danger" (click)="reset()">Reset</button>
+
+                </div>
+              </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="searchBox">
+   
+        <div class="row">
+            <div class="form-group col">
+                <label>Recipe name</label>
+                <input type="text" [(ngModel)]="filter.recipeName" [ngModelOptions]="{standalone: true}" class="form-control">
+            </div>
+            <div class="form-group col">
+                <label>Serving Number</label>
+                <input type="number" class="form-control" [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="filter.servingNumber">
+            </div>
+            <div class="form-group col">
+                <label>Instruction</label>
+                <input type="text" [(ngModel)]="filter.instruction" [ngModelOptions]="{standalone: true}"
+                    class="form-control">
+            </div>
+            <div class="form-group col">
+                <label>Desired Ingredients</label>
+                <select [(ngModel)]="filter.includedIngredients" [ngModelOptions]="{standalone: true}"
+                    class="form-control" multiple>
+                    <option *ngFor='let ing of ingredientList' [ngValue]="ing">
+                        {{ing.name}}
+                    </option>
+
+                </select>
+            </div>
+
+            <div class="form-group col">
+                <label>Undisired Ingredients</label>
+                <select [(ngModel)]="filter.excludedIngredients" [ngModelOptions]="{standalone: true}"
+                    class="form-control" multiple>
+                    <option *ngFor='let ing of ingredientList' [ngValue]="ing">
+                        {{ing.name}}
+                    </option>
+
+                </select>
+            </div>
+            <div class="form-group col">
+                <label>Vegan</label>
+                <input type="checkbox" class="btn-check" [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="filter.vegan">
+            </div>
+
+        </div>
+       
+        <div class="row ml-3">
+            <div class="form-group mt-5">
+                <button class="btn btn-primary" (click)="search()">Search</button>
+            </div>
+        </div>
+
+
+    
+</div>

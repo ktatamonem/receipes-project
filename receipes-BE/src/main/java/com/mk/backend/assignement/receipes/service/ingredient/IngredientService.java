@@ -37,6 +37,11 @@ public interface IngredientService {
      List<IngredientDto> findIngredientByName(String name) throws NoItemFoundException;
 
 
+    /**
+     * retrieve all ingredients for front end purpose
+     * @return
+     */
+     List<IngredientDto> retrieveAllIngredient();
 
 
 }

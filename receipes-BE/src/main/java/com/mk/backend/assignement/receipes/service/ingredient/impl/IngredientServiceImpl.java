@@ -70,4 +70,9 @@ public class IngredientServiceImpl implements IngredientService {
         }
         return ingredientMapper.fromEntityListToDtoList(ingredientList);
     }
+
+    @Override
+    public List<IngredientDto> retrieveAllIngredient() {
+        return ingredientMapper.fromEntityListToDtoList(ingredientRepository.findAll());
+    }
 }

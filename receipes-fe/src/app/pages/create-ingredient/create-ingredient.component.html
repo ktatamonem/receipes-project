@@ -1,0 +1,28 @@
+<div class="content">
+    <div class="modal-header">
+        <h2  *ngIf="!editMode"   class="model-title">Create Ingredient</h2>
+        <h2  *ngIf="editMode"   class="model-title">Edit Ingredient</h2>
+
+    </div>
+    
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                  <label >Ingredient Name</label>
+                <input type="text" *ngIf="!editMode" [(ngModel)]="createIngredientModel.name" class="form-control" [ngModelOptions]="{standalone: true}">
+                  <input type="text" *ngIf="editMode" [(ngModel)]="ingredient.name" class="form-control" [ngModelOptions]="{standalone: true}">
+                </div>
+
+                <div class="modal-footer">
+                    <button  (click)="create()" *ngIf="!editMode" class="btn btn-primary">Create</button>
+                    <button  (click)="edit()" *ngIf="editMode" class="btn btn-primary">Edit</button>
+                    <button  (click)="activeModal.dismiss()"  class="btn btn-primary">Cancel</button>               
+                </div>
+        
+              </form>
+        </div>
+    </div>
+
+
+</div>

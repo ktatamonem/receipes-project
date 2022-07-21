@@ -1,0 +1,38 @@
+<div id="login" class="container">
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="login well well-small">
+            <div>
+                <h2>Recipes Project</h2>
+            </div>
+        
+          <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="login-form" >
+            <div class="control-group">
+              <div class="input-prepend">
+                  <label>login</label>
+                <input  type="text"   class="form-control"  formControlName="username"  [ngClass]="{ 'is-invalid': f.username.touched && f.username.errors }"> 
+                <div *ngIf="f.username.touched &&  f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Username is required field</div>
+                  </div>
+              </div>
+              
+            </div>
+            <div class="control-group">
+              <div class="form-group">
+                <label>password</label>
+                <input  type="password"   formControlName="password" class="form-control"  [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors }"> 
+                <div *ngIf="f.password.touched &&  f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required field</div>
+                  </div>
+              </div>
+              
+            </div>
+         
+            <div class="control-group">
+              <input class="btn btn-primary btn-large btn-block" type="submit" value="Log in"> 
+            </div>
+          </form>
+        </div><!--/.login-->
+      </div><!--/.span12-->
+    </div><!--/.row-fluid-->
+  </div><!--/.container-->

@@ -135,5 +135,12 @@ import java.util.Collections;
         Assertions.assertEquals(0L, responseEntity.getBody().getTotalElements());
     }
 
+    @Test
+    @Order(7)
+    void delete_recipe_success(){
+        String url = Navigation.RECIPE_API+"/"+recipeDto.getId();
+        restTemplate.delete(url);
+    }
+
 
 }

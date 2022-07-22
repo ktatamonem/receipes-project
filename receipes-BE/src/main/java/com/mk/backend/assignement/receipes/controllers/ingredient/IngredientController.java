@@ -100,6 +100,20 @@ public class IngredientController {
     }
 
     @GetMapping("search/{name}")
+    @Operation(
+            summary = "Search Ingredient",
+            description = "Search ingredient in Database.",
+            tags = { "Ingredient" },
+            responses = {
+                    @ApiResponse(
+                            description = "Success",
+                            responseCode = "200",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = List.class))
+                    ),
+                    @ApiResponse(description = "Bad Request", responseCode = "400"),
+                    @ApiResponse(description = "Internal error", responseCode = "500", content = @Content)
+            }
+    )
     public ResponseEntity<List<IngredientDto>> findIngredientByName(@PathVariable @Valid
                                                                         @NotNull
                                                                         @Pattern(regexp="^[A-Za-z]*$",message = "name of ingredient should be only characters")
@@ -109,6 +123,19 @@ public class IngredientController {
     }
 
     @GetMapping("list")
+    @Operation(
+            summary = "List all Ingredients",
+            description = "List all Ingredients.",
+            tags = { "Ingredient" },
+            responses = {
+                    @ApiResponse(
+                            description = "Success",
+                            responseCode = "200",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = List.class))
+                    ),
+                    @ApiResponse(description = "Internal error", responseCode = "500", content = @Content)
+            }
+    )
     public ResponseEntity<List<IngredientDto>> retrieveAllIngredients(){
         log.info("retrieving all ingredients");
         return ResponseEntity.ok(ingredientService.retrieveAllIngredient());

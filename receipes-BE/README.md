@@ -18,4 +18,4 @@ mvn spring-boot:run
 2. run command :docker run -p 8080:8080 recipes:latest
 
 # Open API documentation
-* You can access to REST API documentation via this link :http://localhost:8080/swagger-ui/index.html#/
+* Once th application running you can access to REST API documentation via this link :http://localhost:8080/swagger-ui/index.html#/
